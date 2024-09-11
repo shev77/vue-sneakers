@@ -47,14 +47,14 @@ const buttonDisabled = computed(() => isCreating.value || cartIsEmpty.value)
     <div v-if="!totalPrice || orderId" class="flex h-full items-center">
       <InfoBlock
         v-if="!totalPrice && !orderId"
-        title="Корзина пустая"
-        description="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."
+        title="No products"
+        description="Add at least one pair of sneakers to place an order."
         image-url="/package-icon.png"
       />
       <InfoBlock
         v-if="orderId"
-        title="Заказ оформлен!"
-        :description="`Ваш заказ #${orderId} скоро будет передан курьерской доставке`"
+        title="The order has been placed!"
+        :description="`Your order #${orderId} will be delivered to the courier soon.`"
         image-url="/order-success-icon.png"
       />
     </div>
@@ -64,15 +64,15 @@ const buttonDisabled = computed(() => isCreating.value || cartIsEmpty.value)
 
       <div class="flex flex-col gap-4 mt-7">
         <div class="flex gap-2">
-          <span>Итого:</span>
+          <span>Total:</span>
           <div class="flex-1 border-b border-dashed"></div>
-          <b>{{ totalPrice }} ₽</b>
+          <b>{{ totalPrice }} ¥</b>
         </div>
 
         <div class="flex gap-2">
-          <span>Налог 5%:</span>
+          <span>Tax 5%:</span>
           <div class="flex-1 border-b border-dashed"></div>
-          <b>{{ vatPrice }} ₽</b>
+          <b>{{ vatPrice }} ¥</b>
         </div>
 
         <button
@@ -80,7 +80,7 @@ const buttonDisabled = computed(() => isCreating.value || cartIsEmpty.value)
           @click="createOrder"
           class="mt-4 transition bg-lime-500 w-full rounded-xl py-3 text-white disabled:bg-slate-300 hover:bg-lime-600 active:bg-lime-700 cursor-pointer"
         >
-          Оформить заказ
+          Place an order
         </button>
       </div>
     </div>
